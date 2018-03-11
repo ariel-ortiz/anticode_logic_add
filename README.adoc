@@ -72,5 +72,9 @@ Out: 1
 ----
 La compuerta AND creada en el código anterior se registra como observador de sus dos línea de entrada (`in1` e `in2`). Cuando se establece un valor en alguna de estas líneas (a través del método `set`), la compuerta es notificada y en su momento establece un valor resultante en su línea de salida (`out`). 
 
-Con esta infraestructura podemos crear fácilmente un medio sumador:
+Con esta infraestructura podemos crear fácilmente un *medio sumador*:
 
+
+image::img/medio_sumador.jpg[]
+
+Y con dos medios sumadores podemos hacer un *sumador completo*:
