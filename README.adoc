@@ -106,4 +106,6 @@ class FullAdder:
         OrGate(wire3, wire2, CarryOut)
 ----
 
-Si queremos sumar dos números de _n_ bits cada uno, basta con crear _n_ sumadores completos y conectarlos adecuadamente.
+Si queremos sumar dos números de _n_ bits cada uno, basta con crear _n_ sumadores completos y conectarlos adecuadamente:
+
+image::img/sumador.jpg[]
