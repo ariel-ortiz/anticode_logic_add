@@ -116,4 +116,6 @@ image::img/sumador.jpg[]
 
 - Agarwal, T. https://www.elprocus.com/half-adder-and-full-adder/[“Explain Half Adder and Full Adder with Truth Table”.] Accedido el 11 de marzo de 2018.
 
+- Gamma, E., Helm, R., Johnson, R., & Vlissides, J. “Design Patterns: Elements of Reusable Object-Oriented Software”. Addison-Wesley, 1994.
+
 - Python Software Foundation. https://docs.python.org/3/library/index.html[“The Python 3.6.4 Standard Library”.] Accedido el 11 de marzo de 2018.
