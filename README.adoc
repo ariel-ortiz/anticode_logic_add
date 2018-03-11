@@ -1,6 +1,6 @@
 = Logic Add
 
-*Problema:* Hacer el método que calcule la suma de dos números enteros de la forma más compleja que se les ocurra.
+Este repositorio contiene la solución al https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Faesc.cem%2Fposts%2F1574555849264973&width=500[AntiCodeChallenge de AESC]: _Hacer el método que calcule la suma de dos números enteros de la forma más compleja que se les ocurra._
 
 == Forma de uso
 
@@ -51,8 +51,26 @@ Dicho de otra forma, `add(x, y, n)` equivale a:
 
 == Descripción de la solución
 
-Este programa resuelve el problema simulando las siguientes tres compuertas lógicas:
+Este programa resuelve el problema en cuestión simulando en software las siguientes tres compuertas lógicas:
 
 image::img/compuertas.jpg[]
 
-Cada tipo de compuerta es una clase (`AndGate`, `OrGate` y `XorGate`). Las compuertas a su vez se conectan usando objetos de tipo `Wire`.
+Cada tipo de compuerta es una clase (`AndGate`, `OrGate` y `XorGate`). Las compuertas a su vez se conectan usando objetos de tipo `Wire`. Los objetos `Wire` y las compuertas lógicas implementan en su conjunto el *patrón de diseño de observador* (Gamma, et al. 1994). La mayor parte del flujo del programa ocurre en el contexto de este patrón.
+
+[source, python]
+----
+>>> in1 = Wire()
+>>> in2 = Wire()
+>>> out = Wire()
+>>> AndGate(in1, in2, out)
+<logic_add.AndGate object at 0x10458efd0>
+>>> Display('Out', out)
+<logic_add.Display object at 0x10458edd8>
+>>> in1.set(1)
+>>> in2.set(1)
+Out: 1
+----
+La compuerta AND creada en el código anterior se registra como observador de sus dos línea de entrada (`in1` e `in2`). Cuando se establece un valor en alguna de estas líneas (a través del método `set`), la compuerta es notificada y en su momento establece un valor resultante en su línea de salida (`out`). 
+
+Con esta infraestructura podemos crear fácilmente un medio sumador:
+
