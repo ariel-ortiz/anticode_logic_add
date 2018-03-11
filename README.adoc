@@ -109,3 +109,11 @@ class FullAdder:
 Si queremos sumar dos números de _n_ bits cada uno, basta con crear _n_ sumadores completos y conectarlos adecuadamente:
 
 image::img/sumador.jpg[]
+
+== Bibliografía
+
+- Abelson, H. & Sussman, G. https://mitpress.mit.edu/sicp/full-text/sicp/book/node64.html[“A Simulator for Digital Circuits”.] Accedido el 11 de marzo de 2018.
+
+- Agarwal, T. https://www.elprocus.com/half-adder-and-full-adder/[“Explain Half Adder and Full Adder with Truth Table”.] Accedido el 11 de marzo de 2018.
+
+- Python Software Foundation. https://docs.python.org/3/library/index.html[“The Python 3.6.4 Standard Library”.] Accedido el 11 de marzo de 2018.
