@@ -77,4 +77,33 @@ Con esta infraestructura podemos crear fácilmente un *medio sumador*:
 
 image::img/medio_sumador.jpg[]
 
+El código de un medio sumador queda así:
+
+[source, python]
+----
+class HalfAdder:
+    def __init__(self, A, B, Sum, Carry):
+        XorGate(A, B, Sum)
+        AndGate(A, B, Carry)
+----
+
 Y con dos medios sumadores podemos hacer un *sumador completo*:
+
+image::img/sumador_completo.jpg[]
+
+El código del sumador completo es:
+
+[source, python]
+----
+class FullAdder:
+    def __init__(self, A, B, CarryIn,
+                 Sum, CarryOut):
+        wire1 = Wire()
+        wire2 = Wire()
+        wire3 = Wire()
+        HalfAdder(A, B, wire1, wire2)
+        HalfAdder(CarryIn, wire1, Sum, wire3)
+        OrGate(wire3, wire2, CarryOut)
+----
+
+Si queremos sumar dos números de _n_ bits cada uno, basta con crear _n_ sumadores completos y conectarlos adecuadamente.
