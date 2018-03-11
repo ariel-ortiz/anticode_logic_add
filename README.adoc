@@ -1,3 +1,58 @@
 = Logic Add
 
-“Hacer el método que calcule la suma de dos números enteros de la forma más compleja que se les ocurra.”
+*Problema:* Hacer el método que calcule la suma de dos números enteros de la forma más compleja que se les ocurra.
+
+== Forma de uso
+
+- Para instalar el programa y usarlo como módulo solo se requiere copiar el archivo `src/logic_add.py` al directorio de trabajo. 
+
+- Para correr las pruebas unitarias, teclear desde la terminal:
++
+----
+$ python3 logic_add.py
+----
++
+Una salida vacía indica que se pasan todas las pruebas.
+
+- A continuación tenemos un ejemplo para usar el módulo `logic_add` desde el shell de Python:
++
+[source, python]
+----
+>>> from logic_add import add
+>>> add(2, 3)
+5
+----
+- Por omisión la función `add` utiliza 32 bits de precisión para realizar la operación de suma. Se puede indicar otra cantidad de bits como tercer argumento. Los bits más significativos excedentes se truncan del resultado:
++
+[source, python]
+>>> add(128, 129, 8)
+1
++
+Dicho de otra forma, `add(x, y, n)` equivale a:
++
+----
+(x + y) % (2 ** n)
+----
+- Todos los números enteros que recibe la función `add` se consideran en complemento a dos. Esto quiere decir que el bit más significativo es el signo (si es igual a 1 el número es negativo, si es igual a 0 es positivo).
++
+[source, python]
+----
+>>> add(5, -20)
+-15
+>>> add(-1, -1)
+-2
+>>> add(-5, 5)
+0
+>>> add(254, 1, 8)
+-1
+>>> add(-2, -1, 2)
+1
+----
+
+== Descripción de la solución
+
+Este programa resuelve el problema simulando las siguientes tres compuertas lógicas:
+
+image::img/compuertas.jpg[]
+
+Cada tipo de compuerta es una clase (`AndGate`, `OrGate` y `XorGate`). Las compuertas a su vez se conectan usando objetos de tipo `Wire`.
